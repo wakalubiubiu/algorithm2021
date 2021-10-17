@@ -19,3 +19,8 @@ class Solution:
         for key, value in domain_dict.items():
             result.append(str(value) + ' ' + key)
         return result
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.subdomainVisits(["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]))

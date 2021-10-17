@@ -20,3 +20,7 @@ class Solution:
                 count_dict[prefix_sum[j]] = 1
         return ans
 
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.subarraySum([-1,-1,1], 0))

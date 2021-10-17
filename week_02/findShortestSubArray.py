@@ -22,3 +22,8 @@ class Solution:
             elif value[2] == max_spend:
                 min_spend_len = min(min_spend_len, value[1]- value[0]+1)
         return min_spend_len
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.findShortestSubArray([1, 2, 2, 3, 1]))
