@@ -24,8 +24,3 @@ class Solution:
 
         recursion(nums)
         return result
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.permuteUnique(nums = [1, 1, 2]))

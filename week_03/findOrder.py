@@ -27,8 +27,3 @@ class Solution:
             return course_list
         else:
             return []
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.findOrder(4, [[1,0],[2,0],[3,1],[3,2]]))
