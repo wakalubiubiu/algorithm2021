@@ -54,34 +54,3 @@ class Twitter:
         if followeeId in self.follow_list[followerId]:
             del self.follow_list[followerId][followeeId]
 
-
-# Your Twitter object will be instantiated and called as such:
-# obj = Twitter()
-# obj.postTweet(userId,tweetId)
-# param_2 = obj.getNewsFeed(userId)
-# obj.follow(followerId,followeeId)
-# obj.unfollow(followerId,followeeId)
-
-
-if __name__ == '__main__':
-    ["Twitter", "postTweet", "postTweet", "postTweet", "postTweet", "postTweet", "postTweet", "postTweet", "postTweet",
-     "postTweet", "postTweet", "postTweet", "getNewsFeed"]
-    [[], [1, 5], [1, 3], [1, 101], [1, 13], [1, 10], [1, 2], [1, 94], [1, 505], [1, 333], [1, 22], [1, 11], [1]]
-    twitter = Twitter()
-    twitter.postTweet(1, 5)
-    twitter.postTweet(1, 3)
-    twitter.postTweet(1, 101)
-    twitter.postTweet(1, 13)
-    twitter.postTweet(1, 10)
-    twitter.postTweet(1, 2)
-    twitter.postTweet(1, 94)
-    twitter.postTweet(1, 505)
-    twitter.postTweet(1, 333)
-    twitter.postTweet(1, 22)
-    twitter.postTweet(1, 11)
-    print(twitter.getNewsFeed(1))
-    # twitter.follow(1, 2)
-    # twitter.postTweet(2, 6)
-    # print(twitter.getNewsFeed(1))
-    # twitter.unfollow(1, 2)
-    # print(twitter.getNewsFeed(1))

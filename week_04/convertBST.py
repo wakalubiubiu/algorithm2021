@@ -57,35 +57,3 @@ class Solution:
                     queue.append((child, node_tuple[1] + 1))
         return result
 
-
-if __name__ == '__main__':
-    TreeNode_0 = TreeNode(0)
-    TreeNode_1 = TreeNode(1)
-    TreeNode_2 = TreeNode(2)
-    TreeNode_3 = TreeNode(3)
-    TreeNode_4 = TreeNode(4)
-    TreeNode_6 = TreeNode(6)
-    TreeNode_5 = TreeNode(5)
-    TreeNode_7 = TreeNode(7)
-    TreeNode_8 = TreeNode(8)
-    TreeNode_4.left = TreeNode_1
-    TreeNode_4.right = TreeNode_6
-    TreeNode_1.left = TreeNode_0
-    TreeNode_1.right = TreeNode_2
-    TreeNode_2.right = TreeNode_3
-    TreeNode_6.left = TreeNode_5
-    TreeNode_6.right = TreeNode_7
-    TreeNode_7.right = TreeNode_8
-
-    #
-    # TreeNode_3 = TreeNode(3)
-    # TreeNode_2 = TreeNode(2)
-    # TreeNode_4 = TreeNode(4)
-    # TreeNode_1 = TreeNode(1)
-    # TreeNode_3.left = TreeNode_2
-    # TreeNode_3.right = TreeNode_4
-    # TreeNode_2.left = TreeNode_1
-    solution = Solution()
-    solution.convertBST(TreeNode_4)
-    print(solution.inorderTraversal(TreeNode_4))
-
