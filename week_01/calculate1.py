@@ -4,11 +4,13 @@ class Solution:
         suffix_stack = []
         rpn_stack = []
         stack = []
-        priority_map = {"+": 1, "*": 2, "-": 1, "/": 2}
+        priority_map = {"+": 1, "*": 2, "-": 1, "/": 2, "(": 0 }
         s += ' '
+        need_zero = True
         for char in s:
             if ord('0') <= ord(char) <= ord('9'):
                 numbers +=char
+                need_zero = False
                 continue
             else:
                 if numbers != '':
@@ -16,21 +18,24 @@ class Solution:
                     numbers = ''
             if char == ' ':
                 continue
-            if len(suffix_stack) == 0:
+            if char == '(':
                 suffix_stack.append(char)
-            else:
-                """
-                致命错误，此处需要使用的是while
-                循环，而不是if判断。
-                """
-                if priority_map[suffix_stack[-1]] >= priority_map[char]:
+                need_zero = True
+                continue
+            elif char == ')':
+                while suffix_stack[-1] != '(':
                     rpn_stack.append(suffix_stack.pop())
-                    suffix_stack.append(char)
-                else:
-                    suffix_stack.append(char)
+                suffix_stack.pop()
+                need_zero = False
+                continue
+            if char == '-' and need_zero:
+                rpn_stack.append('0')
+            while len(suffix_stack) >0 and priority_map[suffix_stack[-1]] >= priority_map[char]:
+                rpn_stack.append(suffix_stack.pop())
+            need_zero = True
+            suffix_stack.append(char)
         while len(suffix_stack) > 0:
             rpn_stack.append(suffix_stack.pop())
-        print(rpn_stack)
         for s in rpn_stack:
             if s not in ["+", "-", "*", "/"]:
                 stack.append(s)
@@ -54,4 +59,4 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.calculate("1*2-3/4+5*6-7*8+9/10"))
+    print(solution.calculate("(1+(4+5+2)-3)+(6+8)"))

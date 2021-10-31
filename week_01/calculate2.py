@@ -16,21 +16,11 @@ class Solution:
                     numbers = ''
             if char == ' ':
                 continue
-            if len(suffix_stack) == 0:
-                suffix_stack.append(char)
-            else:
-                """
-                致命错误，此处需要使用的是while
-                循环，而不是if判断。
-                """
-                if priority_map[suffix_stack[-1]] >= priority_map[char]:
-                    rpn_stack.append(suffix_stack.pop())
-                    suffix_stack.append(char)
-                else:
-                    suffix_stack.append(char)
+            while len(suffix_stack) >0 and priority_map[suffix_stack[-1]] >= priority_map[char]:
+                rpn_stack.append(suffix_stack.pop())
+            suffix_stack.append(char)
         while len(suffix_stack) > 0:
             rpn_stack.append(suffix_stack.pop())
-        print(rpn_stack)
         for s in rpn_stack:
             if s not in ["+", "-", "*", "/"]:
                 stack.append(s)
@@ -50,8 +40,3 @@ class Solution:
                     element = int(element1 / element2)
                 stack.append(element)
         return int(stack.pop())
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.calculate("1*2-3/4+5*6-7*8+9/10"))
