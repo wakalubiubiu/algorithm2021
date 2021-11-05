@@ -15,6 +15,16 @@ class Solution:
                 i+=1
             else:
                 return [i, j]
+        """
+    result_map = dict()
+    for i, num in enumerate(nums):
+        if target - num in result_map:
+            return [result_map[target - num], i]
+        else:
+            result_map[num] = i
+    return [0, 0]
+
+        """
 
 
 if __name__=='__main__':
