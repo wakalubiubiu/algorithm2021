@@ -49,8 +49,18 @@ class Twitter:
     def follow(self, followerId: int, followeeId: int) -> None:
         self.follow_list[followerId][followeeId] = 1
 
-
     def unfollow(self, followerId: int, followeeId: int) -> None:
         if followeeId in self.follow_list[followerId]:
             del self.follow_list[followerId][followeeId]
 
+
+if __name__ == '__main__':
+    twitter = Twitter()
+    twitter.postTweet(1, 5)
+    twitter.postTweet(1, 3)
+    twitter.follow(1, 2)
+    twitter.follow(1, 3)
+    twitter.postTweet(2, 101)
+    twitter.postTweet(2, 13)
+    twitter.postTweet(3, 19)
+    print(twitter.getNewsFeed(1))
