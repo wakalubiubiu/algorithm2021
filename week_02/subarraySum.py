@@ -3,24 +3,34 @@ from typing import List
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        prefix_sum = [0]
-        count_dict = dict()
-        count_dict[0] = 1
-        ans = 0
-        for i in range(len(nums)):
-            prefix_sum.append(prefix_sum[i] + nums[i])
-        for j in range(1, len(prefix_sum)):
-            if prefix_sum[j]-k in count_dict:
-                ans += count_dict[prefix_sum[j]-k]
+        hash_sum = dict()
+        total = ans = 0
+        hash_sum[0] = 1
+        for i in nums:
+            total += i
+            if total - k in hash_sum:
+                ans += hash_sum[total - k]
+            if total in hash_sum:
+                hash_sum[total] += 1
             else:
-                ans += 0
-            if prefix_sum[j] in count_dict:
-                count_dict[prefix_sum[j]] += 1
-            else:
-                count_dict[prefix_sum[j]] = 1
+                hash_sum[total] = 1
         return ans
+
+        # d = {}
+        # acc = count = 0
+        # for num in nums:
+        #     acc += num
+        #     if acc == k:
+        #         count += 1
+        #     if acc - k in d:
+        #         count += d[acc - k]
+        #     if acc in d:
+        #         d[acc] += 1
+        #     else:
+        #         d[acc] = 1
+        # return count
 
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.subarraySum([-1,-1,1], 0))
+    print(solution.subarraySum([-1, -1, 1], 0))
