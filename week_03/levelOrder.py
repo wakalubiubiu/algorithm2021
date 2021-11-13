@@ -1,8 +1,9 @@
 
 # Definition for a Node.
-class Node:
-
 from typing import List
+
+
+# class Node:
 
 
 class Solution:
