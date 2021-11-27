@@ -21,8 +21,3 @@ class Solution:
         y = self.find(y)
         if x != y:
             self.fa[x] = y
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    solution.findRedundantConnection([[1,2],[2,3],[3,4],[1,4],[1,5]])
