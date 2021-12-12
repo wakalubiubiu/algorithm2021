@@ -28,9 +28,3 @@ class Solution:
 if __name__ == '__main__':
     solution = Solution()
     print(solution.canFinish(2, [[1, 0]]))
-
-
-
-
-
-
