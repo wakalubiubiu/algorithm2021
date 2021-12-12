@@ -8,11 +8,13 @@ class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
         protect_node = ListNode(0)
         protect_node.next = head
+        # 上一组翻转的k个节点的最后一个节点
         last_node = protect_node
         while head:
             end = head
             count = k
             while end:
+                # 此处count值先减1，然后判断是否不等于0，再更新end成为下一个节点。这样的话由于先count，最后的end就是当前需要翻转的最后一个节点。
                 count -= 1
                 if count == 0:
                     break
@@ -30,9 +32,13 @@ class Solution:
                 prev = head
                 head = temp
 
+            # 上一组最后一个节点等于这一组翻转完的最后一个节点，就是prev
             last_node.next = prev
+            # 本组翻转的第一个节点已经变成了k个节点的最后一个节点，因此需要指向下一组的开头
             old_head.next = next_group_head
+            # 进行下一组翻转前，需要把last_node更新为本组最后一个节点，也就是翻转本组k个节点的第一个节点。
             last_node = old_head
+            # 把head节点更新为下一组的开头，然后继续进行下一组的翻转
             head = next_group_head
 
         return protect_node.next
@@ -49,9 +55,5 @@ if __name__ == '__main__':
     node3.next = node4
     node4.next = node5
     solution = Solution()
-    node = solution.reverseKGroup(node1, 2)
+    node = solution.reverseKGroup(node1, 3)
     print(node.val)
-
-
-
-

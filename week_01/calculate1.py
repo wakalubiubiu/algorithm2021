@@ -4,7 +4,7 @@ class Solution:
         suffix_stack = []
         rpn_stack = []
         stack = []
-        priority_map = {"+": 1, "*": 2, "-": 1, "/": 2, "(": 0 }
+        priority_map = {"+": 1, "*": 2, "-": 1, "/": 2, "(": 0}
         s += ' '
         need_zero = True
         for char in s:
@@ -30,7 +30,7 @@ class Solution:
                 continue
             if char == '-' and need_zero:
                 rpn_stack.append('0')
-            while len(suffix_stack) >0 and priority_map[suffix_stack[-1]] >= priority_map[char]:
+            while len(suffix_stack) > 0 and priority_map[suffix_stack[-1]] >= priority_map[char]:
                 rpn_stack.append(suffix_stack.pop())
             need_zero = True
             suffix_stack.append(char)

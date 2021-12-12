@@ -39,4 +39,4 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.trap([4,2,0,3,2,5]))
+    print(solution.trap([4, 2, 0, 3, 2, 5]))

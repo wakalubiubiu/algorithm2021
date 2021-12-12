@@ -1,6 +1,7 @@
 """
 临值查找
 """
+from collections import OrderedDict
 
 
 class ListNode:
@@ -27,6 +28,7 @@ if __name__ == '__main__':
     n = input("")
     n = int(n)
     number_str = input("")
+    d = OrderedDict()
     for number in number_str.split(" "):
         try:
             nums.append(int(number))
@@ -35,7 +37,7 @@ if __name__ == '__main__':
     for i in range(1, n + 1):
         rank.append(i)
 
-    pos = [ListNode(0,0) for _ in range(0, n + 1)]
+    pos = [ListNode(0, 0) for _ in range(0, n + 1)]
     ans = [0 for _ in range(0, n + 1)]
     rank = sorted(rank[1:], key=lambda x: nums[x])
     rank.insert(0, nums[rank[n - 1]] + 10 ** 9)

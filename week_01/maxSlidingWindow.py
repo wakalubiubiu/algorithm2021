@@ -6,7 +6,7 @@ class Solution:
         queue = []
         ans = []
         for i, num in enumerate(nums):
-            if len(queue) > 0 and queue[0] == i - k:
+            while len(queue) > 0 and queue[0] == i - k:
                 del queue[0]
             while len(queue) > 0 and num >= nums[queue[-1]]:
                 queue.pop()

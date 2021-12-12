@@ -11,6 +11,7 @@ class Solution:
         """
         position = 0
         for i, e in enumerate(nums):
+            # 如果一开始不是0的话，position和i一起移动，每次都会让本身进行一次交换。
             if nums[i] != 0:
                 nums[position], nums[i] = nums[i], nums[position]
                 position += 1
