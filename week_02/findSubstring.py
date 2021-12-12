@@ -27,7 +27,7 @@ class Solution:
             else:
                 word_map[word] = 1
             length += len(word)
-        limit = len(s)-length +1
+        limit = len(s)-length + 1
 
         # 此处把for循环按照单词的长度k进行分组循环，每组内按照步长k循环，这样就可以覆盖所有的循环。
         for j in range(k):

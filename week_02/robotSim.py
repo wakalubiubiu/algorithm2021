@@ -10,13 +10,13 @@ class Solution:
         obstacles_dict = dict()
         max_distance = 0
         for obstacle in obstacles:
-            obstacles_dict[str(obstacle[0]) + '_' + str(obstacle[1])] = 1
+            obstacles_dict[(obstacle[0]+30000) *60001 + (obstacle[1]+30000)] = 1
         for i in commands:
             if 1 <= i <= 9:
                 for j in range(1, i+1):
                     location_x = now_location[0] + x[direction]
                     location_y = now_location[1] + y[direction]
-                    if str(location_x) + '_' + str(location_y) in obstacles_dict:
+                    if (location_x + 30000) * 60001 + (location_y + 30000) in obstacles_dict:
                         break
                     now_location[0] = location_x
                     now_location[1] = location_y
